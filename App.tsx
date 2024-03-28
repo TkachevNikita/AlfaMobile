@@ -1,22 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
-import {StyleSheet, Text, View} from 'react-native';
-import {Button, Colors} from "react-native-ui-lib";
+import {StyleSheet, View} from 'react-native';
+import Constants from 'expo-constants';
+import Navigator from "./Navigator";
+import React from "react";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!!!</Text>
-      <StatusBar style="auto" />
-      <Button label={'Press'} backgroundColor="#000000"/>
-    </View>
-  );
+    return (
+        <View style={styles.container}>
+            <StatusBar style="auto" />
+            <Navigator/>
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    container: {
+        flex: 1,
+        marginTop: Constants.statusBarHeight, // учитываем высоту статус-бара
+        backgroundColor: '#fff',
+    },
 });
