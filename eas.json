@@ -10,7 +10,11 @@
         },
         "credentialsSource": "remote"
       },
-      "production": {}
+      "production": {
+        "android": {
+          "image": "latest"
+        }
+      }
     },
     "submit": {
       "production": {}
