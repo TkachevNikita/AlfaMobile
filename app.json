@@ -25,6 +25,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d7fe6fc3-7464-4c96-892f-0f4227f5f3b1"
+      }
+    },
+    "owner": "dotaveteran"
   }
 }
