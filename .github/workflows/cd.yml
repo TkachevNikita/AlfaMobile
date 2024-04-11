@@ -9,9 +9,6 @@ jobs:
     name: EAS build
     runs-on: ubuntu-latest
     steps:
-      - name: Check for EXPO_TOKEN
-        run: echo secrets.EXPO_TOKEN | base64 -w0
-
       - name: "Set ENV"
         run: echo "$(BASE_URL)"     
         env:
@@ -27,7 +24,7 @@ jobs:
           cache: yarn
 
       - name: Setup Expo
-        uses: expo/expo-github-action@v7
+        uses: expo/expo-github-action@v8
         with:
           expo-version: latest
           eas-version: latest
@@ -38,7 +35,7 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Restore cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: "$(( steps.yarn-cache-path.outputs.dir ))"
           key: "$(( runner.os ))-yarn-$(( hashFiles('**/yarn.lock') ))"
