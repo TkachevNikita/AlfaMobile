@@ -21,7 +21,7 @@ const ButtonView = ({title, variant}: ButtonViewProps) => {
 const styles = StyleSheet.create({
     button: {
         padding: 16,
-        borderRadius: 12,
+        borderRadius: 11,
         alignItems: 'center',
     },
     primary: {
