@@ -1,4 +1,4 @@
-import {StyleSheet, Text, TouchableOpacity} from "react-native";
+import {Pressable, StyleSheet, Text} from "react-native";
 
 interface ButtonViewProps {
     title: string,
@@ -12,9 +12,9 @@ const ButtonView = ({title, variant}: ButtonViewProps) => {
     }[variant] || '';
 
     return (
-        <TouchableOpacity style={[styles.button, buttonStyles]}>
+        <Pressable style={[styles.button, buttonStyles]}>
             <Text style={styles.buttonText}>{title}</Text>
-        </TouchableOpacity>
+        </Pressable>
     )
 };
 
