@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for EXPO_TOKEN
-        run: echo -n secrets.EXPO_TOKEN | base64 -d
+        run: echo secrets.EXPO_TOKEN | base64 -w0
 
       - name: "Set ENV"
         run: echo "$(BASE_URL)"     
