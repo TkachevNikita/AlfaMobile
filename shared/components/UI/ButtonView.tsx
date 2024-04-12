@@ -1,21 +1,23 @@
-import {Pressable, StyleSheet, Text} from "react-native";
+import React from 'react';
+import { GestureResponderEvent, Pressable, StyleSheet, Text } from 'react-native';
 
 interface ButtonViewProps {
-    title: string,
-    variant: 'accent' | 'primary'
+    title: string;
+    variant: 'accent' | 'primary';
+    onPress?: (event?: GestureResponderEvent) => void;
 }
 
-const ButtonView = ({title, variant}: ButtonViewProps) => {
+const ButtonView = ({ title, variant, onPress }: ButtonViewProps) => {
     const buttonStyles = {
         accent: styles.accent,
         primary: styles.primary,
     }[variant] || '';
 
     return (
-        <Pressable style={[styles.button, buttonStyles]}>
+        <Pressable onPress={onPress} style={({ pressed }) => [styles.button, buttonStyles, { opacity: pressed ? 0.5 : 1 }]}>
             <Text style={styles.buttonText}>{title}</Text>
         </Pressable>
-    )
+    );
 };
 
 const styles = StyleSheet.create({
@@ -29,13 +31,13 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(251, 229, 130, 1)',
     },
     accent: {
-        backgroundColor: '#000'
+        backgroundColor: '#000',
     },
     buttonText: {
         color: 'rgba(162, 66, 20, 1)',
         fontSize: 16,
-        fontWeight: '700'
-    }
+        fontWeight: '700',
+    },
 });
 
 export default ButtonView;
