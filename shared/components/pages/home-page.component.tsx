@@ -1,13 +1,13 @@
-import {View, Text, StyleSheet} from "react-native";
+import {View, Text, StyleSheet, Image} from "react-native";
 import ButtonView from "../UI/ButtonView";
 
 const HomePageComponent = () => {
     return (
         <View style={styles.container}>
-            <View style={styles.homeLogo}>
-
-            </View>
             <View style={styles.homeDescription}>
+                <View style={styles.homeLogo}>
+                    <Image source={require('../../../assets/animal.png')}/>
+                </View>
                 <Text style={styles.homeTitle}>
                     Привет
                 </Text>
@@ -17,8 +17,7 @@ const HomePageComponent = () => {
                 </Text>
             </View>
             <View style={styles.buttonContainer}>
-                <ButtonView variant="accent" title="Регистрация"/>
-                <ButtonView variant="primary" title="Авторизация"/>
+                <ButtonView variant="primary" title="Продолжить"/>
             </View>
         </View>
     );
@@ -27,36 +26,36 @@ const HomePageComponent = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        justifyContent: 'space-between',
+        justifyContent: 'center',
+        alignItems: 'center',
         padding: 60,
-    },
-    homeLogo: {
-        flex: 1,
-        alignSelf: 'stretch',
-        backgroundColor: 'rgba(217, 217, 217, 1)'
-    },
-    homeTitle: {
-        fontSize: 24,
-        fontWeight: '600',
+        backgroundColor: 'rgba(49, 233, 129, 1)',
     },
     homeDescription: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        gap: 10
+    },
+    homeLogo: {
+        marginBottom: 20,
+    },
+    homeTitle: {
+        fontSize: 24,
+        marginBottom: 10,
+        color: '#FFF',
+        fontWeight: '600'
     },
     homeText: {
-        width: 167,
         fontSize: 14,
+        fontWeight: '400',
         lineHeight: 21,
-        textAlign: 'center'
+        textAlign: 'center',
+        color: '#FFF',
+        width: 170
     },
     buttonContainer: {
-        flex: 1,
-        gap: 15,
-        justifyContent: 'flex-end'
-    }
+        marginBottom: 60,
+    },
 });
 
 export default HomePageComponent;

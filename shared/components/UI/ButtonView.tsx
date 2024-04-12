@@ -20,19 +20,21 @@ const ButtonView = ({title, variant}: ButtonViewProps) => {
 
 const styles = StyleSheet.create({
     button: {
-        padding: 16,
-        borderRadius: 12,
-        alignItems: 'center',
+        paddingVertical: 15,
+        paddingHorizontal: 45,
+        borderRadius: 50,
+        alignSelf: 'center',
     },
     primary: {
-        backgroundColor: 'rgba(0, 0, 0, 0.66)'
+        backgroundColor: 'rgba(251, 229, 130, 1)',
     },
     accent: {
         backgroundColor: '#000'
     },
     buttonText: {
-        color: '#fff',
-        fontSize: 14
+        color: 'rgba(162, 66, 20, 1)',
+        fontSize: 16,
+        fontWeight: '700'
     }
 });
 
