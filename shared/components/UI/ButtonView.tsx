@@ -9,13 +9,13 @@ interface ButtonViewProps {
 
 const ButtonView = ({ title, variant, onPress }: ButtonViewProps) => {
     const buttonStyles = {
-        accent: styles.accent,
-        primary: styles.primary,
+        accent: [styles.accent, styles.buttonAccentText],
+        primary: [styles.primary],
     }[variant] || '';
 
     return (
         <Pressable onPress={onPress} style={({ pressed }) => [styles.button, buttonStyles, { opacity: pressed ? 0.5 : 1 }]}>
-            <Text style={styles.buttonText}>{title}</Text>
+            <Text style={buttonStyles}>{title}</Text>
         </Pressable>
     );
 };
@@ -31,10 +31,15 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(251, 229, 130, 1)',
     },
     accent: {
-        backgroundColor: '#000',
+        backgroundColor: '#FF8F19',
     },
-    buttonText: {
+    buttonPrimaryText: {
         color: 'rgba(162, 66, 20, 1)',
+        fontSize: 16,
+        fontWeight: '700',
+    },
+    buttonAccentText: {
+        color: '#FFFFFF',
         fontSize: 16,
         fontWeight: '700',
     },
