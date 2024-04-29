@@ -14,8 +14,9 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        width: 148,
-        height: 200,
+        width: '100%',
+        // width: 148,
+        // height: 200,
         backgroundColor: '#31E981',
         borderRadius: 16
     }

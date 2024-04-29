@@ -1,12 +1,16 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {StyleSheet, View, Text} from "react-native";
 import SearchInputView from "../UI/SearchInputView";
 import Slider from "../UI/Slider";
 import CardView from "../UI/CardView";
 import ButtonView from "../UI/ButtonView";
 import NavigationView from "../UI/NavigationView";
+import {useNavigation} from "@react-navigation/native";
 
 const HomePageComponent: FC = () => {
+    const navigation = useNavigation();
+
+
     return (
         <View style={styles.home}>
             <View style={styles.container}>
@@ -25,11 +29,10 @@ const HomePageComponent: FC = () => {
                             Доставка
                         </Text>
                     </View>
-
                 </View>
             </View>
             <View style={styles.buttonContainer}>
-                <ButtonView title={"Выбрать ресторан"} variant={'accent'} />
+                <ButtonView onPress={() => navigation.navigate("Shake" as never)} title={"Выбрать ресторан"} variant={'accent'} />
             </View>
             <NavigationView />
         </View>
@@ -41,15 +44,15 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 40,
         gap: 20,
-        backgroundColor: '#EBF3E7',
     },
     cardContainer: {
         flex: 1,
         flexDirection: 'row',
-        justifyContent: "space-between"
+        gap: 20
     },
     home: {
         flex: 1,
+        backgroundColor: '#EBF3E7',
     },
     buttonContainer: {
         marginBottom: 130
