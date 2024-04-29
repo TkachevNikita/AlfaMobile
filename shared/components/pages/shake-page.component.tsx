@@ -3,6 +3,9 @@ import {View, Text, StyleSheet, Image} from "react-native";
 import {ShakeEventExpo} from "../../utils/ShakeEventExpo";
 import NavigationView from "../UI/NavigationView";
 import RestarauntLayout from "../../layouts/restaraunt-layout";
+import CustomModal from "../UI/ModalView";
+import FoodPreview from "../FoodPreview";
+import {foods} from "../../mockdata/mockFood";
 
 interface ShakePageComponentProps {}
 
@@ -17,6 +20,10 @@ const ShakePageComponent: React.FC<ShakePageComponentProps> = () => {
         return () => ShakeEventExpo.removeListener();
     }, []);
 
+    const closePopup = () => {
+        setTest(false);
+    }
+
     return (
         <RestarauntLayout>
             <View style={styles.shake__container}>
@@ -25,6 +32,9 @@ const ShakePageComponent: React.FC<ShakePageComponentProps> = () => {
                     Потряси меня...
                 </Text>
             </View>
+            <CustomModal visible={test} onClose={closePopup}>
+                <FoodPreview food={foods[0]}/>
+            </CustomModal>
         </RestarauntLayout>
     );
 };
