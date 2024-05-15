@@ -3,6 +3,7 @@ import WelcomePageComponent from "./shared/components/pages/welcome-page.compone
 import {NavigationContainer} from "@react-navigation/native";
 import HomePageComponent from "./shared/components/pages/home-page.component";
 import ShakePageComponent from "./shared/components/pages/shake-page.component";
+import RestaurantPageComponent from "./shared/components/pages/restaurant-page.component";
 
 const Stack = createNativeStackNavigator();
 const Navigator = () => {
@@ -22,6 +23,11 @@ const Navigator = () => {
                 <Stack.Screen
                     name="Shake"
                     component={ShakePageComponent}
+                    options={{headerShown: false}}
+                />
+                <Stack.Screen
+                    name="Restaurant"
+                    component={RestaurantPageComponent}
                     options={{headerShown: false}}
                 />
             </Stack.Navigator>

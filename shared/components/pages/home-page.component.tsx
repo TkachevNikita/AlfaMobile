@@ -1,38 +1,32 @@
 import React, {FC, useState} from 'react';
-import {StyleSheet, View, Text} from "react-native";
+import {StyleSheet, View, Text, ScrollView} from "react-native";
 import SearchInputView from "../UI/SearchInputView";
 import Slider from "../UI/Slider";
 import CardView from "../UI/CardView";
 import ButtonView from "../UI/ButtonView";
 import NavigationView from "../UI/NavigationView";
 import {useNavigation} from "@react-navigation/native";
+import {restaurants} from "../../mockdata/mockRest";
+import {IRestaurant} from "../../../core/intrefaces/IRestaurant";
+import RestaurantPreview from "../RestaurantPreview";
 
 const HomePageComponent: FC = () => {
-    const navigation = useNavigation();
 
 
     return (
         <View style={styles.home}>
             <View style={styles.container}>
                 <SearchInputView />
-                <Slider />
-                <View style={styles.cardContainer}>
-                    <View style={styles.cardItem}>
-                        <CardView />
-                        <Text style={styles.cardText}>
-                            В ресторане
-                        </Text>
+                <Text style={styles.restaurant__title}>
+                    Рестораны
+                </Text>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <View style={styles.restaurant__container}>
+                        {restaurants.map((restaurant: IRestaurant) =>
+                            <RestaurantPreview key={restaurant.id} restaurant={restaurant}/>
+                        )}
                     </View>
-                    <View style={styles.cardItem}>
-                        <CardView />
-                        <Text style={styles.cardText}>
-                            Доставка
-                        </Text>
-                    </View>
-                </View>
-            </View>
-            <View style={styles.buttonContainer}>
-                <ButtonView onPress={() => navigation.navigate("Shake" as never)} title={"Выбрать ресторан"} variant={'accent'} />
+                </ScrollView>
             </View>
             <NavigationView />
         </View>
@@ -45,9 +39,7 @@ const styles = StyleSheet.create({
         padding: 40,
         gap: 20,
     },
-    cardContainer: {
-        flex: 1,
-        flexDirection: 'row',
+    restaurant__container: {
         gap: 20
     },
     home: {
@@ -57,16 +49,9 @@ const styles = StyleSheet.create({
     buttonContainer: {
         marginBottom: 130
     },
-    cardItem: {
-        flex: 1,
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 10
-    },
-    cardText: {
-        fontSize: 12,
+    restaurant__title: {
         fontWeight: '700',
-        color: '#0E7F3D'
+        fontSize: 28
     }
 });
 
