@@ -2,24 +2,149 @@ import {IRestaurant} from "../../core/intrefaces/IRestaurant";
 
 export const restaurants: IRestaurant[] = [
     {
-        id: '1',
-        title: 'Вкусно и точка',
-        image: 'https://newizv.ru/attachments/bd23b2fe9c7a73b88c9fcdfceeb49f456ca0ccb7/store/crop/0/0/1920/1280/1920/1280/0/19d2edbb50e12825fce47973e96c509e27a27d73748ed155a4312eec47d6/1973af8fd5f84ec16bbd5dd5fc921575103e81198a998235bf187b4d432d',
-        rating: 4.7,
-        grades: 500
+        address: "проспект Ленина, 40",
+        id: "1267166676364398",
+        title: "Maccheroni, ресторан",
+        externalContent: [
+            {
+                mainPhotoUrl: "https://i0.photo.2gis.com/main/branch/9/1267166676364398/common"
+            },
+            {
+                mainPhotoUrl: "https://i8.photo.2gis.com/main/geo/9/1267273050371173/view"
+            }
+        ],
+        reviews: {
+            generalRating: 4.1,
+            generalCount: 2106
+        },
+        rubrics: [
+            {
+                name: "Рестораны"
+            },
+            {
+                name: "Доставка готовых блюд"
+            }
+        ]
     },
     {
-        id: '2',
-        title: 'Бургер Кинг',
-        image: 'https://sun9-73.userapi.com/impg/hLRHh3atlWmeW4S5fkdMvdEXAcLdKlBjC3_xtw/_2X9uGQtxYU.jpg?size=1100x825&quality=96&sign=d01d58e42952ff06695a8e1445b88931&c_uniq_tag=R8c4_9-5dddwvC358z3Ev64wC0-2aR2_xNSRoBL-3WI&type=album',
-        rating: 3.9,
-        grades: 1200
+        address: "улица Карла Либкнехта, 18",
+        id: "70000001083811428",
+        title: "Безумно. Шаурма",
+        externalContent: [
+            {
+                mainPhotoUrl: "https://i6.photo.2gis.com/main/branch/9/70000001083811428/common"
+            },
+            {
+                mainPhotoUrl: "https://i6.photo.2gis.com/main/geo/9/1267273050371168/view"
+            }
+        ],
+        reviews: {
+            generalRating: 4.5,
+            generalCount: 45
+        },
+        rubrics: [
+            {
+                name: "Быстрое питание"
+            }
+        ]
     },
     {
-        id: '3',
-        title: 'Subway',
-        image: 'https://media.rbcdn.ru/media/news/subway.jpg',
-        rating: 3.2,
-        grades: 923
-    }
-]
+        address: "проспект Ленина, 38а",
+        id: "70000001036798411",
+        title: "Додо Пицца, сеть пиццерий",
+        externalContent: [
+            {
+                mainPhotoUrl: "https://i8.photo.2gis.com/main/branch/9/70000001036798411/common"
+            }
+        ],
+        reviews: {
+            generalRating: 4.2,
+            generalCount: 232
+        },
+        rubrics: [
+            {
+                name: "Пиццерии"
+            },
+            {
+                name: "Доставка готовых блюд"
+            },
+            {
+                name: "Быстрое питание"
+            }
+        ]
+    },
+    {
+        address: "проспект Ленина, 40",
+        id: "1267165676210232",
+        title: "Кейс, ресторан",
+        externalContent: [
+            {
+                mainPhotoUrl: "https://i2.photo.2gis.com/main/branch/9/1267165676210232/common"
+            },
+            {
+                mainPhotoUrl: "https://i8.photo.2gis.com/main/geo/9/1267273050371173/view"
+            }
+        ],
+        reviews: {
+            generalRating: 4.4,
+            generalCount: 74
+        },
+        rubrics: [
+            {
+                name: "Рестораны"
+            },
+            {
+                name: "Банкетные залы"
+            }
+        ]
+    },
+    {
+        address: "улица Карла Либкнехта, 18",
+        id: "1267165676428475",
+        title: "Pizza mia, ресторан быстрого питания",
+        externalContent: [
+            {
+                mainPhotoUrl: "https://i6.photo.2gis.com/main/branch/9/1267165676428475/common"
+            },
+            {
+                mainPhotoUrl: "https://i6.photo.2gis.com/main/geo/9/1267273050371168/view"
+            }
+        ],
+        reviews: {
+            generalRating: 2.9,
+            generalCount: 736
+        },
+        rubrics: [
+            {
+                name: "Пиццерии"
+            },
+            {
+                name: "Доставка готовых блюд"
+            },
+            {
+                name: "Быстрое питание"
+            }
+        ]
+    },
+    {
+        address: "проспект Ленина, 38а",
+        id: "1267165676793257",
+        title: "Вилка Ложка, фермерское кафе",
+        externalContent: [
+            {
+                mainPhotoUrl: "https://i5.photo.2gis.com/main/branch/9/1267165676793257/common"
+            }
+        ],
+        reviews: {
+            generalRating: 3.2,
+            generalCount: 452
+        },
+        rubrics: [
+            {
+                name: "Столовые"
+            },
+            {
+                name: "Доставка готовых блюд"
+            }
+        ]
+    }]
