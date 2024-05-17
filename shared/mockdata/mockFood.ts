@@ -2,9 +2,9 @@ import {IFood} from "../../core/intrefaces/IFood";
 
 export const foods: IFood[] = [
     {
-        id: '2',
+        id: '1',
         image: 'https://kartinki.pics/uploads/posts/2021-03/thumbs/1617151340_20-p-obed-krasivo-24.jpg',
-        title: 'Тестовый пример блюдо №2',
+        title: 'Тестовый пример блюдо №1',
         composition: 'Тут будет распологаться состав блюда. Например, сахар, соль, вода',
         price: '1399р'
     },
@@ -44,7 +44,7 @@ export const foods: IFood[] = [
         price: '929р'
     },
     {
-        id: '3',
+        id: '7',
         image: 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663725612_6-mykaleidoscope-ru-p-appetitnaya-yeda-krasivo-7.jpg',
         title: 'Блюдо №7',
         composition: 'Lorem ipsum 8',

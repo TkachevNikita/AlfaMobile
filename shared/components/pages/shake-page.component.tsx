@@ -33,7 +33,7 @@ const ShakePageComponent: React.FC<ShakePageComponentProps> = () => {
                 </Text>
             </View>
             <CustomModal visible={test} onClose={closePopup}>
-                <FoodPreview food={foods[0]}/>
+                <FoodPreview food={foods[Math.floor(Math.random() * (foods.length - 1))]}/>
             </CustomModal>
         </RestarauntLayout>
     );
