@@ -1,15 +1,15 @@
 import React from 'react';
-import {Image, StyleSheet, Text, View} from "react-native";
+import {Image, ScrollView, StyleSheet, Text, View} from "react-native";
 import {RouteProp, useNavigation, useRoute} from "@react-navigation/native";
 import SearchInputView from "../UI/SearchInputView";
 import Slider from "../UI/Slider";
-import CardView from "../UI/CardView";
 import ButtonView from "../UI/ButtonView";
 import NavigationView from "../UI/NavigationView";
 import {IRestaurant} from "../../../core/intrefaces/IRestaurant";
-import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import ChipView from "../UI/ChipView";
 import Svg, {Path} from "react-native-svg";
+import {foods} from "../../mockdata/mockFood";
+import FoodCardView from "../UI/FoodCardView";
 
 type RootStackParamList = {
     Restaurant: { restaurant: IRestaurant };
@@ -23,6 +23,7 @@ const RestaurantPageComponent = () => {
     const restaurant = route.params.restaurant;
 
     return (
+        <ScrollView>
         <View style={styles.home}>
             <View style={styles.hero}>
                 <View style={styles.hero__container}>
@@ -55,13 +56,17 @@ const RestaurantPageComponent = () => {
             </View>
             <View style={styles.container}>
                 <SearchInputView />
-                <Slider />
+                {/*<Slider />*/}
+                <View style={{flexDirection: 'row', flexWrap: 'wrap', gap: 15, justifyContent: 'center'}}>
+                    {foods.map((food) => <FoodCardView food={food}/>)}
+                </View>
             </View>
-            <View style={styles.buttonContainer}>
-                <ButtonView onPress={() => navigation.navigate("Shake" as never)} title={"Выбрать блюдо"} variant={'accent'} />
-            </View>
+            {/*<View style={styles.buttonContainer}>*/}
+            {/*    <ButtonView onPress={() => navigation.navigate("Shake" as never)} title={"Выбрать блюдо"} variant={'accent'} />*/}
+            {/*</View>*/}
             <NavigationView />
         </View>
+        </ScrollView>
     );
 };
 
@@ -79,7 +84,6 @@ const styles = StyleSheet.create({
     home: {
         flex: 1,
         backgroundColor: '#EBF3E7',
-        overflow: 'scroll'
     },
     buttonContainer: {
         marginBottom: 130

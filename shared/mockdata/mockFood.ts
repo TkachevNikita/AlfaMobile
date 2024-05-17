@@ -19,7 +19,35 @@ export const foods: IFood[] = [
         id: '3',
         image: 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663725612_6-mykaleidoscope-ru-p-appetitnaya-yeda-krasivo-7.jpg',
         title: 'Блюдо №3',
-        composition: 'Lorem ipsum 3',
+        composition: 'Lorem ipsum 4',
+        price: '929р'
+    },
+    {
+        id: '4',
+        image: 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663725612_6-mykaleidoscope-ru-p-appetitnaya-yeda-krasivo-7.jpg',
+        title: 'Блюдо №4',
+        composition: 'Lorem ipsum 5',
+        price: '929р'
+    },
+    {
+        id: '5',
+        image: 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663725612_6-mykaleidoscope-ru-p-appetitnaya-yeda-krasivo-7.jpg',
+        title: 'Блюдо №5',
+        composition: 'Lorem ipsum 6',
+        price: '929р'
+    },
+    {
+        id: '6',
+        image: 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663725612_6-mykaleidoscope-ru-p-appetitnaya-yeda-krasivo-7.jpg',
+        title: 'Блюдо №6',
+        composition: 'Lorem ipsum 7',
+        price: '929р'
+    },
+    {
+        id: '3',
+        image: 'https://mykaleidoscope.ru/x/uploads/posts/2022-09/1663725612_6-mykaleidoscope-ru-p-appetitnaya-yeda-krasivo-7.jpg',
+        title: 'Блюдо №7',
+        composition: 'Lorem ipsum 8',
         price: '929р'
     }
 ]
