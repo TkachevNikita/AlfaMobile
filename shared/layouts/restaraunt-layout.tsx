@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {StyleSheet, View} from "react-native";
+import {ScrollView, StyleSheet, View} from "react-native";
 import NavigationView from "../components/UI/NavigationView";
 
 interface RestaurantLayoutProps {

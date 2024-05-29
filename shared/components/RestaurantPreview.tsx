@@ -16,9 +16,10 @@ interface RestaurantPreviewProps {
 const RestaurantPreview: React.FC<RestaurantPreviewProps> = ({restaurant}) => {
     const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
 
-
     return (
-        <Pressable onPress={() => navigation.navigate("Restaurant", { restaurant: restaurant })}>
+        <Pressable onPress={() => {
+            navigation.navigate("Restaurant", { restaurant: restaurant });
+        }}>
             <View>
                 <Image
                     source={{uri: restaurant.externalContent[0].mainPhotoUrl}}
