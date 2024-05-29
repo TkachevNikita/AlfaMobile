@@ -1,10 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
+import restaurantSlice from "./slices/restaurantSlice";
+import menuSlice from "./slices/menuSlice";
 
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        restaurants: restaurantSlice,
+        menu: menuSlice
+    }
 })
 
-// Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
-// Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
 export type AppDispatch = typeof store.dispatch

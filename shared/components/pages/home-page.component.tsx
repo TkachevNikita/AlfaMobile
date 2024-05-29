@@ -1,29 +1,37 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StyleSheet, View, Text, ScrollView} from "react-native";
 import SearchInputView from "../UI/SearchInputView";
 import NavigationView from "../UI/NavigationView";
-import {restaurants} from "../../mockdata/mockRest";
 import {IRestaurant} from "../../../core/intrefaces/IRestaurant";
 import RestaurantPreview from "../RestaurantPreview";
+import {useAppDispatch, useAppSelector} from "../../../core/store/hooks";
+import {fetchRestaurants} from "../../../core/store/slices/restaurantSlice";
 
 const HomePageComponent: React.FC = () => {
 
+    const dispatch = useAppDispatch();
+    const restaurants = useAppSelector((state) => state.restaurants.restaurants);
+
+    useEffect(() => {
+        dispatch(fetchRestaurants());
+    }, [dispatch]);
+
     return (
         <View style={styles.home}>
-            <View style={styles.container}>
-                <SearchInputView />
-                <Text style={styles.restaurant__title}>
-                    Рестораны
-                </Text>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    <View style={styles.restaurant__container}>
-                        {restaurants.map((restaurant: IRestaurant) =>
-                            <RestaurantPreview key={restaurant.id} restaurant={restaurant}/>
-                        )}
-                    </View>
-                </ScrollView>
-            </View>
-            <NavigationView />
+                <View style={styles.container}>
+                    <SearchInputView />
+                    <Text style={styles.restaurant__title}>
+                        Рестораны
+                    </Text>
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <View style={styles.restaurant__container}>
+                            {restaurants.map((restaurant: IRestaurant) =>
+                                <RestaurantPreview key={restaurant.id} restaurant={restaurant}/>
+                            )}
+                        </View>
+                    </ScrollView>
+                </View>
+                <NavigationView />
         </View>
     );
 };

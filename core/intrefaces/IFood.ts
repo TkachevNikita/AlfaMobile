@@ -1,7 +1,10 @@
 export interface IFood {
     id?: string;
-    image: string;
-    title: string;
-    composition: string;
-    price: string;
+    name: string;
+    description: string;
+    images: string[];
+    categories: {
+        id: string;
+        name: string | null
+    }[]
 }
