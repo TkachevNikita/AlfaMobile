@@ -7,4 +7,5 @@ export interface IFood {
         id: string;
         name: string | null
     }[]
+    existingCount: number;
 }

@@ -5,20 +5,24 @@ import ButtonView from "./UI/ButtonView";
 
 interface FoodPreviewProps {
     food: IFood;
+    offer: {
+        price: number;
+        currency: string;
+    }
 }
 
-const FoodPreview: React.FC<FoodPreviewProps> = ({food}) => {
+const FoodPreview: React.FC<FoodPreviewProps> = ({food, offer}) => {
     return (
         <View>
             <Image style={styles.food__image} source={require('../../assets/food.png')}/>
-            <Text style={styles.food__title}>{food.title}</Text>
-            <View style={styles.description}>
-                <Text style={styles.description__title}>Состав:</Text>
-                <Text>{food.composition}</Text>
-            </View>
+            <Text style={styles.food__title}>{food.name}</Text>
+            {/*<View style={styles.description}>*/}
+            {/*    <Text style={styles.description__title}>Состав:</Text>*/}
+            {/*    <Text>{food.composition}</Text>*/}
+            {/*</View>*/}
             <View style={styles.description}>
                 <Text style={styles.description__title}>Цена:</Text>
-                <Text>{food.price}</Text>
+                <Text>{offer.price} {offer.currency}</Text>
             </View>
             <ButtonView title={'В корзину'} variant={'accent'}/>
         </View>

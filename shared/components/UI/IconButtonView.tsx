@@ -1,12 +1,29 @@
-import React from 'react';
-import {Button} from "react-native";
+import React, {ReactNode} from 'react';
+import {GestureResponderEvent, TouchableOpacity} from "react-native";
+import { StyleSheet } from "react-native";
 
-const IconButtonView = () => {
+interface IconButtonViewProps {
+    children: ReactNode;
+    onPress?: (event?: GestureResponderEvent) => void;
+}
+
+const IconButtonView: React.FC<IconButtonViewProps> = ({children, onPress}) => {
     return (
-        <Button title={'Ппп'}>
-
-        </Button>
+        <TouchableOpacity
+            onPress={onPress}
+            style={styles.button}
+        >
+            {children}
+        </TouchableOpacity>
     );
 };
+
+const styles = StyleSheet.create({
+   button: {
+       padding: 5,
+       backgroundColor: 'rgba(49, 233, 129, 1)',
+       borderRadius: 50
+   }
+});
 
 export default IconButtonView;

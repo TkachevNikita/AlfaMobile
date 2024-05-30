@@ -1,15 +1,14 @@
 import React, {useEffect} from 'react';
 import {Image, ImageBackground, ScrollView, StyleSheet, Text, View} from "react-native";
 import {RouteProp, useNavigation, useRoute} from "@react-navigation/native";
-import SearchInputView from "../UI/SearchInputView";
 import ButtonView from "../UI/ButtonView";
 import NavigationView from "../UI/NavigationView";
 import {IRestaurant} from "../../../core/intrefaces/IRestaurant";
 import ChipView from "../UI/ChipView";
 import Svg, {Path} from "react-native-svg";
-import FoodCardView from "../UI/FoodCardView";
 import {useAppDispatch, useAppSelector} from "../../../core/store/hooks";
 import {fetchMenu} from "../../../core/store/slices/menuSlice";
+import Menu from "../Menu";
 
 type RootStackParamList = {
     Restaurant: { restaurant: IRestaurant };
@@ -25,7 +24,6 @@ const RestaurantPageComponent = () => {
     const menu = useAppSelector((state) => state.menu.menu);
 
     useEffect(() => {
-        console.log(restaurant);
         if (restaurant) {
             dispatch(fetchMenu(restaurant.id));
         }
@@ -69,20 +67,7 @@ const RestaurantPageComponent = () => {
                     </View>
                     <View style={styles.container}>
                         <ButtonView onPress={() => navigation.navigate('Shake' as never)} title={'Предложи блюдо'} variant={'accent'}/>
-                        <SearchInputView />
-                        <View style={{flexDirection: 'row', flexWrap: 'wrap', gap: 15, justifyContent: 'center'}}>
-                            {
-                                menu[0] ?
-                                menu[0].items.map((item) =>
-                                    <FoodCardView
-                                        key={item.product.id}
-                                        food={item.product}
-                                        offer={item.offer}
-                                    />)
-                                    :
-                                    <></>
-                            }
-                        </View>
+                        <Menu menu={menu}/>
                     </View>
                 </View>
             </ScrollView>
