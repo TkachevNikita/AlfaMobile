@@ -6,15 +6,20 @@ import RestarauntLayout from "../../layouts/restaraunt-layout";
 import CustomModal from "../UI/ModalView";
 import FoodPreview from "../FoodPreview";
 import {foods} from "../../mockdata/mockFood";
+import {useAppSelector} from "../../../core/store/hooks";
+import {IMenu} from "../../../core/intrefaces/IMenu";
 
 interface ShakePageComponentProps {}
 
 const ShakePageComponent: React.FC<ShakePageComponentProps> = () => {
     const [test, setTest] = useState(false);
+    const [randomMenu, setRandomMenu] = useState<any>();
+    const menu = useAppSelector((state) => state.menu.menu);
 
     useEffect(() => {
         ShakeEventExpo.addListener(() => {
             setTest(true);
+            setRandomMenu(menu[0].items[Math.floor(Math.random() * (menu[0].items.length - 1))])
         });
 
         return () => ShakeEventExpo.removeListener();
@@ -23,6 +28,7 @@ const ShakePageComponent: React.FC<ShakePageComponentProps> = () => {
     const closePopup = () => {
         setTest(false);
     }
+
 
     return (
         <RestarauntLayout>
@@ -33,7 +39,10 @@ const ShakePageComponent: React.FC<ShakePageComponentProps> = () => {
                 </Text>
             </View>
             <CustomModal visible={test} onClose={closePopup}>
-                <FoodPreview food={foods[Math.floor(Math.random() * (foods.length - 1))]}/>
+                <FoodPreview
+                    food={randomMenu?.product}
+                    offer={randomMenu?.offer}
+                />
             </CustomModal>
         </RestarauntLayout>
     );
